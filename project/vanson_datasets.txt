@@ -1,0 +1,29 @@
+lieke-van-son/remnant_fryer2012/beta/beta0p0_zetahg6p0/compas_output_weighted.h5
+https://gwlandscape.org.au/file_download/?fileId=d7fb367a-573b-43e7-8b80-27c1bc90cc4b lieke-van-son/remnant_fryer2012/beta/beta0p25_zetahg6p0/compas_output_weighted.h5
+https://gwlandscape.org.au/file_download/?fileId=aab2acde-0d18-4333-9358-0613ec6b0830 lieke-van-son/remnant_fryer2012/beta/beta0p5_zetahg6p0/compas_output_weighted.h5
+https://gwlandscape.org.au/file_download/?fileId=47e879d4-13fc-40ea-b74c-1eee71156131 lieke-van-son/remnant_fryer2012/beta/beta0p75_zetahg6p0/compas_output_weighted.h5
+https://gwlandscape.org.au/file_download/?fileId=bb380c0d-d28f-403b-9ac2-faeb82d039a9 lieke-van-son/remnant_fryer2012/beta/beta1p0_zetahg6p0/compas_output_weighted.h5
+
+https://gwlandscape.org.au/file_download/?fileId=3eebd39b-2017-4393-bfae-66a130729ab8 lieke-van-son/remnant_fryer2012/zetahg/beta0p5_zetahg4p5/compas_output_weighted.h5
+https://gwlandscape.org.au/file_download/?fileId=7c850103-7eed-473c-87d8-534ea844fe0e lieke-van-son/remnant_fryer2012/zetahg/beta0p5_zetahg5p5/compas_output_weighted.h5
+https://gwlandscape.org.au/file_download/?fileId=74dce8d1-ed9d-4fbd-ae4b-5041220725df lieke-van-son/remnant_fryer2012/zetahg/beta0p5_zetahg6p5/compas_output_weighted.h5
+
+lieke-van-son/remnant_fryer2012/circum/beta0p5_circum0p0_zetahg6p0/compas_output_weighted.h5
+lieke-van-son/remnant_fryer2012/circum/beta0p5_circum0p25_zetahg6p0/compas_output_weighted.h5
+lieke-van-son/remnant_fryer2012/circum/beta0p5_circum0p5_zetahg6p0/compas_output_weighted.h5
+lieke-van-son/remnant_fryer2012/circum/beta0p5_circum0p75_zetahg6p0/compas_output_weighted.h5
+lieke-van-son/remnant_fryer2012/circum/beta0p5_circum1p0_zetahg6p0/compas_output_weighted.h5
+
+lieke-van-son/remnant_fryer2012/fcore/beta0p5_fcore0p8_zetahg6p0/compas_output_weighted.h5
+lieke-van-son/remnant_fryer2012/fcore/beta0p5_fcore0p9_zetahg6p0/compas_output_weighted.h5
+lieke-van-son/remnant_fryer2012/fcore/beta0p5_fcore1p0_zetahg6p0/compas_output_weighted.h5
+lieke-van-son/remnant_fryer2012/fcore/beta0p5_fcore1p1_zetahg6p0/compas_output_weighted.h5
+lieke-van-son/remnant_fryer2012/fcore/beta0p5_fcore1p2_zetahg6p0/compas_output_weighted.h5
+
+lieke-van-son/remnant_fryer2022/fmix/beta0p5_zetahg6p0_fmix0p5/compas_output_weighted.h5
+lieke-van-son/remnant_fryer2022/fmix/beta0p5_zetahg6p0_fmix0p7/compas_output_weighted.h5
+lieke-van-son/remnant_fryer2022/fmix/beta0p5_zetahg6p0_fmix1p0/compas_output_weighted.h5
+lieke-van-son/remnant_fryer2022/fmix/beta0p5_zetahg6p0_fmix1p4/compas_output_weighted.h5
+lieke-van-son/remnant_fryer2022/fmix/beta0p5_zetahg6p0_fmix2p0/compas_output_weighted.h5
+lieke-van-son/remnant_fryer2022/fmix/beta0p5_zetahg6p0_fmix2p8/compas_output_weighted.h5
+lieke-van-son/remnant_fryer2022/fmix/beta0p5_zetahg6p0_fmix4p0/compas_output_weighted.h5
