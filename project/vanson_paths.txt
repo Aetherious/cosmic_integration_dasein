@@ -1,25 +1,30 @@
+# Lieke van Son - Beta Parameters [5 sets]
 ( GB) lieke-van-son/remnant_fryer2012/beta/beta0p0_zetahg6p0/compas_output_weighted.h5
 (4.3 GB) lieke-van-son/remnant_fryer2012/beta/beta0p25_zetahg6p0/compas_output_weighted.h5
 (3.7 GB) lieke-van-son/remnant_fryer2012/beta/beta0p5_zetahg6p0/compas_output_weighted.h5
 (4.0 GB) lieke-van-son/remnant_fryer2012/beta/beta0p75_zetahg6p0/compas_output_weighted.h5
 (4.6 GB) lieke-van-son/remnant_fryer2012/beta/beta1p0_zetahg6p0/compas_output_weighted.h5
 
+# Lieke van Son - ZetaHG Parameters [3 sets]
 (3.4 GB) lieke-van-son/remnant_fryer2012/zetahg/beta0p5_zetahg4p5/compas_output_weighted.h5
 (3.5 GB) lieke-van-son/remnant_fryer2012/zetahg/beta0p5_zetahg5p5/compas_output_weighted.h5
 (3.8 GB) lieke-van-son/remnant_fryer2012/zetahg/beta0p5_zetahg6p5/compas_output_weighted.h5
 
+# Lieke van Son - Circum Parameters [5 sets]
 ( GB) lieke-van-son/remnant_fryer2012/circum/beta0p5_circum0p0_zetahg6p0/compas_output_weighted.h5
 ( GB) lieke-van-son/remnant_fryer2012/circum/beta0p5_circum0p25_zetahg6p0/compas_output_weighted.h5
 ( GB) lieke-van-son/remnant_fryer2012/circum/beta0p5_circum0p5_zetahg6p0/compas_output_weighted.h5
 ( GB) lieke-van-son/remnant_fryer2012/circum/beta0p5_circum0p75_zetahg6p0/compas_output_weighted.h5
 ( GB) lieke-van-son/remnant_fryer2012/circum/beta0p5_circum1p0_zetahg6p0/compas_output_weighted.h5
 
+# Lieke van Son - FCore Parameters [5 sets]
 ( GB) lieke-van-son/remnant_fryer2012/fcore/beta0p5_fcore0p8_zetahg6p0/compas_output_weighted.h5
 ( GB) lieke-van-son/remnant_fryer2012/fcore/beta0p5_fcore0p9_zetahg6p0/compas_output_weighted.h5
 ( GB) lieke-van-son/remnant_fryer2012/fcore/beta0p5_fcore1p0_zetahg6p0/compas_output_weighted.h5
 ( GB) lieke-van-son/remnant_fryer2012/fcore/beta0p5_fcore1p1_zetahg6p0/compas_output_weighted.h5
 ( GB) lieke-van-son/remnant_fryer2012/fcore/beta0p5_fcore1p2_zetahg6p0/compas_output_weighted.h5
 
+# Lieke van Son - FMix Parameters [5 sets]
 ( GB) lieke-van-son/remnant_fryer2022/fmix/beta0p5_zetahg6p0_fmix0p5/compas_output_weighted.h5
 ( GB) lieke-van-son/remnant_fryer2022/fmix/beta0p5_zetahg6p0_fmix0p7/compas_output_weighted.h5
 ( GB) lieke-van-son/remnant_fryer2022/fmix/beta0p5_zetahg6p0_fmix1p0/compas_output_weighted.h5
