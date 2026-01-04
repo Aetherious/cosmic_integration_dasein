@@ -1,8 +1,10 @@
+# Standard Libraries
 import argparse
 import importlib
 import time
 import warnings
 
+# External Libraries
 import h5py  as h5
 import numpy as np
 import astropy.units as u
@@ -10,6 +12,7 @@ import matplotlib.pyplot as plt
 from scipy.interpolate import interp1d
 from scipy.stats import norm as NormDist
 
+# Local Modules
 import ClassCOMPAS
 import selection_effects
 from cosmology import get_cosmology
