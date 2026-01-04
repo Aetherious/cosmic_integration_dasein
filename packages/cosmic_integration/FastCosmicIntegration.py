@@ -1,17 +1,17 @@
-import numpy as np
-import h5py  as h5
-# import os
-import time
-import matplotlib.pyplot as plt
-# import scipy
-from scipy.interpolate import interp1d
-from scipy.stats import norm as NormDist
-import ClassCOMPAS
-import selection_effects
-import warnings
-import astropy.units as u
 import argparse
 import importlib
+import time
+import warnings
+
+import h5py  as h5
+import numpy as np
+import astropy.units as u
+import matplotlib.pyplot as plt
+from scipy.interpolate import interp1d
+from scipy.stats import norm as NormDist
+
+import ClassCOMPAS
+import selection_effects
 from cosmology import get_cosmology
 
 def calculate_redshift_related_params(max_redshift=10.0, max_redshift_detection=1.0, redshift_step=0.001, z_first_SF = 10.0, cosmology=None):
