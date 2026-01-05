@@ -494,7 +494,8 @@ def find_detection_rate(path, dco_type="BBH", merger_output_filename=None, weigh
                         output.write(f'{COMPAS.mass1[j]:.5f}\t{COMPAS.mass2[j]:.5f}\t{redshifts[i]:.5f}\t{merger_rate[j][i]:.10f}\n')
     return detection_rate, formation_rate, merger_rate, redshifts, COMPAS
 
-
+# Change append rates to "save rates" function
+# I.e. save rates calculated in "find_detection_rate() function" to separate (new) HDF5 file
 def append_rates(path, detection_rate, formation_rate, merger_rate, redshifts, COMPAS, n_redshifts_detection,
     maxz=1., sensitivity="O1", dco_type="BHBH", mu0=0.035, muz=-0.23, sigma0=0.39, sigmaz=0., alpha=0.,
     append_binned_by_z = False, redshift_binsize=0.1, provided_cosmology=None):
@@ -824,17 +825,6 @@ def parse_cli_args():
     args = parser.parse_args()
     return args
 
-# set_cosmology function migrated to define_cosmology.py module
-# def set_cosmology(cosmology_name="Planck18"):
-#     # Set cosmology using astropy, print a warning if TNG fit is used with Planck18 cosmology (since TNG uses Planck15)
-#     if cosmology_name == "Planck18": print("USING PLANCK18 AS COSMOLOGY! If working with TNG fit, you may want to use Planck15 instead for self-consistency.")
-#     else: print("Using %s as cosmology!"%cosmology_name)
-
-#     return getattr(importlib.import_module('astropy.cosmology'), cosmology_name)
-
-
-
-
 
 def main():
     # Define command line options for the most commonly varied options
@@ -842,10 +832,11 @@ def main():
 
     defined_cosmo = get_cosmology(args.cosmology_name)
 
+    ##################################################
+    # Begin cosmic integration program
 
-    #####################################
-    # Run the cosmic integration
-    start_CI = time.time()
+    start_timer_CI = time.time()
+
     detection_rate, formation_rate, merger_rate, redshifts, COMPAS = find_detection_rate(
         args.path,
         dco_type=args.dco_type,
@@ -871,11 +862,16 @@ def main():
         Mc_max=300.0, Mc_step=0.1,
         eta_max=0.25, eta_step=0.01,
         snr_max=1000.0, snr_step=0.1, provided_cosmology=defined_cosmo)
-    end_CI = time.time()
 
-    #####################################
+    end_timer_CI = time.time()
+
+    duration_CI = end_timer_CI - start_timer_CI
+
+    ##################################################
+    # Pending append rates deprecation
     # Append your freshly calculated merger rates to the hdf5 file
-    start_append = time.time()
+    start_timer_append = time.time()
+
     if args.append_rates:
         n_redshifts_detection = int(args.max_redshift_detection / args.redshift_step)
         append_rates(args.path, detection_rate, formation_rate, merger_rate, redshifts, COMPAS, n_redshifts_detection,
@@ -888,26 +884,33 @@ def main():
         delete_rates(args.path, mu0=args.mu0, muz=args.muz, sigma0=args.sigma0, sigmaz=args.sigmaz, alpha=args.alpha,
                      append_binned_by_z=False)
 
-    end_append = time.time()
+    end_timer_append = time.time()
 
-    #####################################
-    # Plot your result
-    start_plot = time.time()
+    duration_append = end_timer_append - start_timer_append
+
+    ##################################################
+    # Plot results from cosmic integration
+
+    start_timer_plotting = time.time()
+
     chirp_masses = (COMPAS.mass1 * COMPAS.mass2) ** (3. / 5.) / (COMPAS.mass1 + COMPAS.mass2) ** (1. / 5.)
     plot_rates(args.path, formation_rate, merger_rate, detection_rate, redshifts, chirp_masses, show_plot=False,
                mu0=args.mu0, muz=args.muz, sigma0=args.sigma0, sigmaz=args.sigmaz, alpha=args.alpha)
-    end_plot = time.time()
 
-    print('CI took ', end_CI - start_CI, 's')
-    print('Appending rates took ', end_append - start_append, 's')
-    print('plot took ', end_plot - start_plot, 's')
+    end_timer_plotting = time.time()
 
+    duration_plotting = end_timer_plotting - start_timer_plotting
 
-##################################################################
-###
-### Run it!
-###
-##################################################################
+    ##################################################
+    # Print durations for program processes
+
+    print('Cosmic Integration Duration: ', duration_CI, 's')
+    print('Plotting Duration: ', duration_plotting, 's')
+
+    # Pending append rates deprecation
+    print('Rates Append Duration: ', duration_append, 's')
+
+    ##################################################
+
 if __name__ == "__main__":
     main()
-
