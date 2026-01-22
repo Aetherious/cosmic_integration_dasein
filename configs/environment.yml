@@ -1,0 +1,34 @@
+# ~/configs/environment.yaml
+name: sspc
+channels: [conda-forge]
+dependencies:
+  - python=3.12
+  - numpy
+  - astropy
+  - scipy
+  - matplotlib
+  - ipykernel
+  - ipython
+  - jupyter
+  - ipydatagrid
+  - h5py
+  - pandas
+# The following are requirements specific to sspc codebase:
+  - halo
+  - psutil
+  - setproctitle
+  - simplejson
+  # - tables (this is not available via conda)
+  - voluptuous
+# The following are requirements for https://github.com/FloorBroekgaarden/common_code
+  - seaborn
+###
+  - black
+  - isort
+  - azure-identity
+  - azure-storage-blob
+  - requests
+  - pre-commit
+  - pip
+  - pip:
+    - tables

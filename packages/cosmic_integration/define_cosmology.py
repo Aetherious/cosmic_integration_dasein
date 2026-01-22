@@ -7,10 +7,10 @@ from astropy import cosmology as cosmo
 DEFAULT_COSMO = cosmo.Planck18
 
 # Create COSMOLOGY default cache
-COSMOLOGY = [
-    DEFAULT_COSMO,
-    DEFAULT_COSMO.name
-]
+# COSMOLOGY = [
+#     DEFAULT_COSMO,
+#     DEFAULT_COSMO.name()
+# ]
 
 # Define typings for cosmo
 type_cosmo = Union[cosmo.FLRW, str, dict, None]
@@ -65,8 +65,8 @@ def get_cosmology(provided_cosmo: type_cosmo) -> cosmo.FLRW:
         raise ValueError("Invalid format provided for cosmology.")
 
     # cache the cosmology
-    COSMOLOGY[0] = provided_cosmo
-    COSMOLOGY[1] = repr(provided_cosmo) if not provided_cosmo.name else provided_cosmo.name
+    # COSMOLOGY[0] = provided_cosmo
+    # COSMOLOGY[1] = repr(provided_cosmo) if not provided_cosmo.name() else provided_cosmo.name()
 
     return retrieved_cosmo
 

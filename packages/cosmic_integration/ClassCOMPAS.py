@@ -2,8 +2,11 @@
 import numpy as np
 import h5py as h5
 import os
-from . import totalMassEvolvedPerZ as MPZ
+import totalMassEvolvedPerZ as MPZ
 
+# Dev Note:
+# The NumPy 'in1d' function is DEPRECATED
+# Replaced all 'in1d' function calls for 'isin'
 
 class COMPASData(object):
     def __init__(
@@ -68,7 +71,7 @@ class COMPASData(object):
         # By default, we mask for BBHs that merge within a Hubble time, assuming
         # the pessimistic CEE prescription (HG donors cannot survive a CEE) and
         # not allowing immediate RLOF post-CEE
-        
+
         stellar_type_1, stellar_type_2, hubble_flag, dco_seeds = \
             self.get_COMPAS_variables("BSE_Double_Compact_Objects", ["Stellar_Type(1)", "Stellar_Type(2)", "Merges_Hubble_Time", "SEED"])
         dco_seeds = dco_seeds.flatten()
@@ -76,11 +79,11 @@ class COMPASData(object):
         if types == "CHE_BBH" or types == "NON_CHE_BBH":
             stellar_type_1_zams, stellar_type_2_zams, che_ms_1, che_ms_2, sys_seeds = \
                 self.get_COMPAS_variables("BSE_System_Parameters", ["Stellar_Type@ZAMS(1)", "Stellar_Type@ZAMS(2)", "CH_on_MS(1)", "CH_on_MS(2)", "SEED"])
-          
+
             che_mask  = np.logical_and.reduce((stellar_type_1_zams == 16, stellar_type_2_zams == 16, che_ms_1 == True, che_ms_2 == True))
             che_seeds = sys_seeds[()][che_mask]
 
-        self.CHE_mask = np.in1d(dco_seeds, che_seeds) if types == "CHE_BBH" or types == "NON_CHE_BBH" else np.repeat(False, len(dco_seeds))
+        self.CHE_mask = np.isin(dco_seeds, che_seeds) if types == "CHE_BBH" or types == "NON_CHE_BBH" else np.repeat(False, len(dco_seeds))
 
         # if user wants to mask on Hubble time use the flag, otherwise just set all to True, use astype(bool) to set masks to bool type
         hubble_mask = hubble_flag.astype(bool) if withinHubbleTime else np.repeat(True, len(dco_seeds))
@@ -100,14 +103,14 @@ class COMPASData(object):
 
             # get the flags and unique seeds from the Common Envelopes file
             ce_seeds = self.get_COMPAS_variables("BSE_Common_Envelopes", "SEED")
-            dco_from_ce = np.in1d(ce_seeds, dco_seeds)
+            dco_from_ce = np.isin(ce_seeds, dco_seeds)
             dco_ce_seeds = ce_seeds[dco_from_ce]
 
             # if masking on RLOF, get flag and match seeds to dco seeds
             if noRLOFafterCEE:
                 rlof_flag = self.get_COMPAS_variables("BSE_Common_Envelopes", "Immediate_RLOF>CE")[dco_from_ce].astype(bool)
                 rlof_seeds = np.unique(dco_ce_seeds[rlof_flag])
-                rlof_mask = np.logical_not(np.in1d(dco_seeds, rlof_seeds))
+                rlof_mask = np.logical_not(np.isin(dco_seeds, rlof_seeds))
             else:
                 rlof_mask = np.repeat(True, len(dco_seeds))
 
@@ -115,7 +118,7 @@ class COMPASData(object):
             if pessimistic:
                 pessimistic_flag = self.get_COMPAS_variables("BSE_Common_Envelopes", "Optimistic_CE")[dco_from_ce].astype(bool)
                 pessimistic_seeds = np.unique(dco_ce_seeds[pessimistic_flag])
-                pessimistic_mask = np.logical_not(np.in1d(dco_seeds, pessimistic_seeds))
+                pessimistic_mask = np.logical_not(np.isin(dco_seeds, pessimistic_seeds))
             else:
                 pessimistic_mask = np.repeat(True, len(dco_seeds))
         else:
@@ -155,7 +158,7 @@ class COMPASData(object):
         Data.close()
 
     def setCOMPASData(self):
-        
+
         primary_masses, secondary_masses, formation_times, coalescence_times, dco_seeds = \
             self.get_COMPAS_variables("BSE_Double_Compact_Objects", ["Mass(1)", "Mass(2)", "Time", "Coalescence_Time", "SEED"])
 
@@ -165,7 +168,7 @@ class COMPASData(object):
         self.seedsDCO = dco_seeds[self.DCOmask]
         if self.initialZ is None:
             self.initialZ = initial_Z
-        maskMetallicity = np.in1d(initial_seeds, self.seedsDCO)
+        maskMetallicity = np.isin(initial_seeds, self.seedsDCO)
         self.metallicitySystems = self.initialZ[maskMetallicity]
         self.n_systems = len(initial_seeds)
 
@@ -199,7 +202,7 @@ class COMPASData(object):
         )
 
     def get_COMPAS_variables(self, hdf5_file, var_names):
-        """ 
+        """
             Get a variable or variables from a COMPAS file
 
             Args:
