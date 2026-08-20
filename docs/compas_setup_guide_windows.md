@@ -1,4 +1,4 @@
-# COMPAS Setup Guide for Windows
+# COMPAS Setup Guide for Windows 11
 
 ### Navigation
 
@@ -20,43 +20,42 @@
 
 ### Windows Subsystem for Linux (WSL)
 
-1. Open PowerShell in administrator mode by right-clicking and selecting "Run as administrator".
+1. Right-click the Windows Start menu and select "Terminal (Admin)" to open an elevated terminal.
 2. Install WSL: `wsl --install`
-3. Restart machine.
-
-### Ubuntu Distribution of Linux (Ubuntu)
-
-1. Open PowerShell in administrator mode.
-2. Install WSL with Ubuntu: `wsl --install`
-3. Create new Linux user account and password.
+    - You may be prompted to restart the machine, in which case you should repeat the above steps.
+    - This will enable WSL and install the Ubuntu distribution of Linux.
+3. You will then be prompted to create a new Linux user account and password.
 
 ## Section 2: Visual Studio Code (VS Code)
 
+### Check System Type (CPU Architecture)
+
+1. Right-click the Windows Start menu and select "Settings".
+2. Navigate to System > About.
+3. Under Device Info, it is displayed next to System Type.
+
+### Install VS Code
+
 1. Install [Visual Studio Code](https://code.visualstudio.com/Download).
 2. Select Windows User Installer.
-    - Choose x64 for x86_64 architecture (Intel).
-    - Choose Arm64 for aarch64 architecture (Qualcomm).
+    - Choose x64 for x86_64 architecture, or Arm64 for aarch64 architecture.
 3. During installation, verify that VS Code is added to PATH.
 
-## Section 3: VS Code Extensions (Ctrl+Shift+X)
+## Section 3: VS Code Extensions
 
 ### Connect VS Code to WSL
 
-1. Search and install "WSL" extension.
-2. Open Command Palette (Ctrl+Shift+P or F1).
-3. Search "WSL: Connect to WSL"
-4. Press Enter.
+1. Open the Extensions tab (Ctrl+Shift+X).
+2. Search and install "WSL" extension.
+3. Open Command Palette (Ctrl+Shift+P or F1).
+4. Search and select "WSL: Connect to WSL".
 
-### Install Additional Extensions
-
-#### Extensions for working with Python environments:
+### Install Extensions for Working with Python and Jupyter Environments
 
 - Python
     - Pylance
     - Python Debugger
     - Python Environments
-
-#### Extensions for working with Jupyter Notebook environments:
 
 - Jupyter
     - Jupyter Keymap
@@ -66,14 +65,13 @@
 
 ## Section 4: VS Code Workspace
 
-### Create New Workspace for Explorer (Ctrl+Shift+E)
+### Create New Workspace 
 
-1. File > Open Folder...
-2. /home/your-linux-username
-3. Press OK
+1. Open Explorer tab (Ctrl+Shift+E).
+2. File > Open Folder...
+3. /home/your-linux-username
 4. File > Save Workspace As...
 5. /home/your-linux-username/your-workspace-name.code-workspace
-6. Press OK
 
 ## Section 5: Install COMPAS Dependencies
 
@@ -92,20 +90,7 @@
 4. Change to repositories directory: `cd ~/repositories`
 5. Clone COMPAS repository: `git clone https://github.com/TeamCOMPAS/COMPAS`
 
-## Section 7: Define COMPAS Environment Variable
-
-1. Open terminal (Ctrl+`).
-2. Append the COMPAS environment variable definition to the .bashrc file:
-
-        echo >> ~/.bashrc
-        echo '# Initialize COMPAS Root Directory Environment Variable' >> ~/.bashrc
-        echo 'COMPAS_ROOT_DIR=~/repositories/COMPAS' >> ~/.bashrc
-        echo >> ~/.bashrc
-
-3. Reload terminal: `source ~/.bashrc`
-4. Check if environment variable was correctly defined: `echo $COMPAS_ROOT_DIR`
-
-## Section 8: Build COMPAS
+## Section 7: Build COMPAS
 
 #### *Note for aarch64 Systems:* For those with aarch64 instead of x86_64 CPU architecture, please perform the following modification:
 
@@ -123,14 +108,14 @@
 1. Open terminal (Ctrl+`).
 2. Change to COMPAS source code directory: `cd ~/repositories/COMPAS/src`
 3. Clean lingering builds of COMPAS: `make clean`
-4. Build COMPAS in parallel using (4)  CPU threads: `make -j4`
-    - It is not recommended to build with more than 4 since the compilation has high RAM consumption.
+4. Build COMPAS in parallel using (4) CPU threads: `make -j4`
+    - Not recommended to build with more than 4 since the compilation has high RAM consumption.
 
 ## Section 9: conda-forge Python Environment Manager
 
 ### Download conda-forge Python environment manager with the Miniforge3 installer:
 
-#### x86_64 Architecture (Intel)
+#### x86_64 Architecture
 
     wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh
 
@@ -138,7 +123,7 @@
 
     source ~/.bashrc
 
-#### aarch64 Architecture (Qualcomm)
+#### aarch64 Architecture
 
     wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-aarch64.sh
 
@@ -179,9 +164,9 @@
 
 1. Open Command Palette (Ctrl+Shift+P or F1)
 2. Search "Python: Select Interpreter"
-3. Select "Python version-here (compas_py) ./miniforge3/envs/compas_py/bin/python"
+3. Select "Python version-here (compas_py) ./miniforge3/envs/compas/bin/python"
 
-## Section 11: Install Python Modules to compas_py Environment
+## Section 11: Install Python Modules to (compas_py) Environment
 
 ### Install Python Package Installer (pip): `conda install pip`
 
@@ -197,7 +182,7 @@
     - Installs the following dependencies:
         - NumPy
 - **Matplotlib**: `pip install matplotlib` (provides plotting functionality)
-    - Install the following dependencies:
+    - Installs the following dependencies:
         - ContourPy
         - cycler
         - fontTools
@@ -260,11 +245,12 @@
 
 ### Create Jupyter Notebook
 
-1. File > New File... 
-2. your-filename.ipynb
-3. Select newly created file to open.
-4. In the top-right section of notebook, choose "Select Kernel" or "Detecting Kernels".
-5. Select Kernel > Python Environments... > compas_py (Python <version#>) miniforge3/envs/compas_py/bin/python
+1. Open Explorer (Ctrl+Shift+E).
+2. File > New File... 
+3. your-filename.ipynb
+4. Select newly created file to open.
+5. In the top-right section of notebook, choose "Select Kernel" or "Detecting Kernels".
+6. Select Kernel > Python Environments... > compas_py (Python <version#>) miniforge3/envs/compas_py/bin/python
 
 ## Section 13: Mounting External Storage Devices
 
