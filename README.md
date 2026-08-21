@@ -10,6 +10,6 @@ SSPC Repository: https://gitlab.com/dhendriks/syntheticstellarpopconvolve
 COMPAS Repository: https://github.com/TeamCOMPAS/COMPAS
 
 ### Reviewer
-Suoi-Nguon Pham – <aether@daseinazure.com>
+Suoi-Nguon Pham – <spham@daseinazure.com>
 
 Please feel free to reach out with any questions, comments, or concerns you may have!
